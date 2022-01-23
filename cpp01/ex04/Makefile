@@ -1,19 +1,18 @@
-NAME		= shooter
+NAME		= replace
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -I. -std=c++98
-SRCS		= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS		= main.cpp
 OBJS		= $(SRCS:.cpp=.o)
-HEADER		=  Weapon.hpp HumanA.hpp HumanB.hpp
 %.o:		%.cpp
 			$(CC) $(FLAGS) -c $< -o $(<:.cpp=.o)
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS) $(HEADER)
+$(NAME):	$(OBJS) Makefile
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-			rm -f $(OBJS)
+			rm -f $(OBJS) file.replace
 
 fclean:		clean
 			rm -f $(NAME)

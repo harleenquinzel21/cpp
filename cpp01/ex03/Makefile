@@ -1,6 +1,6 @@
 NAME		= shooter
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -I. -std=c++98
+FLAGS		= -Wall -Wextra -Werror -MMD -std=c++98
 SRCS		= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS		= $(SRCS:.cpp=.o)
 HEADER		=  Weapon.hpp HumanA.hpp HumanB.hpp
@@ -9,7 +9,7 @@ HEADER		=  Weapon.hpp HumanA.hpp HumanB.hpp
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS) $(HEADER)
+$(NAME):	$(OBJS) $(HEADER) Makefile
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:

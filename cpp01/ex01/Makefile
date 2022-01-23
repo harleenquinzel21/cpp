@@ -1,6 +1,6 @@
 NAME		= zombie_horde
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -I. -std=c++98
+FLAGS		= -Wall -Wextra -Werror -MMD -std=c++98
 SRCS		= main.cpp Zombie.cpp ZombieHorde.cpp
 OBJS		= $(SRCS:.cpp=.o)
 HEADER		= Zombie.hpp
@@ -9,7 +9,7 @@ HEADER		= Zombie.hpp
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS) $(HEADER)
+$(NAME):	$(OBJS) $(HEADER) Makefile
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
