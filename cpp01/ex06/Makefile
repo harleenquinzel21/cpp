@@ -1,18 +1,19 @@
-NAME		= replace
+NAME		= karenFilter
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -MMD -std=c++98
-SRCS		= main.cpp
+SRCS		= main.cpp Karen.cpp
 OBJS		= $(SRCS:.cpp=.o)
+HEADER		=  Karen.hpp
 %.o:		%.cpp
 			$(CC) $(FLAGS) -c $< -o $(<:.cpp=.o)
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS) Makefile
+$(NAME):	$(OBJS) $(HEADER) Makefile
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-			rm -f $(OBJS) *.replace *.d
+			rm -f $(OBJS) *.d
 
 fclean:		clean
 			rm -f $(NAME)

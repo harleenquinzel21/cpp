@@ -2,21 +2,16 @@
 #include <fstream>
 #include <string>
 
-static void replace(std::string &fileName, std::string &s1, std::string &s2)
+void replace(std::string &fileName, std::string &s1, std::string &s2)
 {
 	std::ifstream	inputFile(fileName);
 	std::ofstream	outputFile(fileName.append(".replace"));
 	std::string		line;
 	size_t			i = 0;
 
-	if (!inputFile)
+	if (!inputFile || !outputFile)
 	{
-		std::cerr << "Error opening file" << fileName << std::endl;
-		exit (1);
-	}
-	if (!outputFile)
-	{
-		std::cerr << "Error opening file" << fileName.append(".replace") << std::endl;
+		std::cerr << "Error opening file!" << std::endl;
 		exit (1);
 	}
 	while (std::getline(inputFile, line))
@@ -31,9 +26,8 @@ static void replace(std::string &fileName, std::string &s1, std::string &s2)
 			}
 			else
 			{
-				//second arg of substr is not necessary, it takes the remainder
 				outputFile << line.substr(0, i) << s2;
-				line = line.substr(i + s1.length());
+				line = line.substr(i + s1.size()); // to the end of the line
 			}
 		}
 		if (!inputFile.eof())

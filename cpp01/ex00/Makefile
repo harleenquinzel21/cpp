@@ -1,6 +1,6 @@
 NAME		= zombie
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -MMD. -std=c++98
+FLAGS		= -Wall -Wextra -Werror -MMD -std=c++98
 SRCS		= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS		= $(SRCS:.cpp=.o)
 HEADER		= Zombie.hpp
@@ -13,7 +13,7 @@ $(NAME):	$(OBJS) $(HEADER) Makefile
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-			rm -f $(OBJS)
+			rm -f $(OBJS) *.d
 
 fclean:		clean
 			rm -f $(NAME)

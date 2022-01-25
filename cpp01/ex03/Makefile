@@ -13,7 +13,7 @@ $(NAME):	$(OBJS) $(HEADER) Makefile
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-			rm -f $(OBJS)
+			rm -f $(OBJS) *.d
 
 fclean:		clean
 			rm -f $(NAME)
