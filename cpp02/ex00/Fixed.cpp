@@ -4,7 +4,7 @@
 Fixed::Fixed(void)
 {
 	std::cout << "Default constructor called" << std::endl;
-	this->fixedValue = 0;
+	this->fixedValue = 0.0;
 	return ;
 }
 
@@ -35,9 +35,9 @@ int	Fixed::getRawBits(void) const
 		return (this->fixedValue);
 }
 
-void	Fixed::setRawBits(int const val)
+void	Fixed::setRawBits(int const raw)
 {
 		std::cout << "setRawBits member function called" << std::endl;
-		this->fixedValue = val;
+		this->fixedValue = raw;
 		return ;
 }
