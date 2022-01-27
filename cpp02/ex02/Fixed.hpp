@@ -16,12 +16,31 @@ class Fixed
 		Fixed(const float &fval);
 
 		Fixed	&operator=(const Fixed &val);
+		bool	operator>(const Fixed &val) const;
+		bool	operator<(const Fixed &val) const;
+		bool	operator>=(const Fixed &val) const;
+		bool	operator<=(const Fixed &val) const;
+		bool	operator==(const Fixed &val) const;
+		bool	operator!=(const Fixed &val) const;
+		Fixed	operator+(const Fixed &val) const;
+		Fixed	operator-(const Fixed &val) const;
+		Fixed	operator*(const Fixed &val) const;
+		Fixed	operator/(const Fixed &val) const;
+		Fixed	&operator++(void);
+		Fixed	operator++(int);
+		Fixed	&operator--(void);
+		Fixed	operator--(int);
 
 		int		toInt(void) const;
 		float	toFloat(void) const;
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+
+		static Fixed		&min(Fixed &val1, Fixed &val2);
+		static const Fixed	&min(const Fixed &val, const Fixed &val2);
+		static Fixed		&max(Fixed &val1, Fixed &val2);
+		static const Fixed	&max(const Fixed &val, const Fixed &val2);
 };
 
 std::ostream	&operator<<(std::ostream &ostream, const Fixed &fixed);
