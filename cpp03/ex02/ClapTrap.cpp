@@ -24,12 +24,13 @@
 
 	ClapTrap &ClapTrap::operator=(ClapTrap const &rhs)
 	{
+		std::cout << "Copy assigment operator called" << std::endl;
 		if (this != &rhs)
 		{
 			this->_name = rhs.getName();
 			this->_hitPoints = rhs.getHitPoints();
 			this->_energy = rhs.getEnergy();
-			this->_attackDamage = rhs.getAttackDemage();
+			this->_attackDamage = rhs.getAttackDamage();
 		}
 		return (*this);
 	}
@@ -72,12 +73,12 @@
 		this->_energy = amount;
 	}
 
-	unsigned int const &ClapTrap::getAttackDemage(void) const
+	unsigned int const &ClapTrap::getAttackDamage(void) const
 	{
 		return (this->_attackDamage);
 	}
 
-	void ClapTrap::setAttackDemage(unsigned int const &amount)
+	void ClapTrap::setAttackDamage(unsigned int const &amount)
 	{
 		this->_attackDamage = amount;
 		return ;
@@ -85,18 +86,18 @@
 
 	void ClapTrap::attack(const std::string &target)
 	{
-		std::cout << "ClapTrap " << this->_name << " attack " << target;
+		std::cout << this->_name << " attack " << target;
 		std::cout << " causing 0 points of damage!" << std::endl;
 	}
 	void ClapTrap::takeDamage(unsigned int amount)
 	{
-		std::cout << "ClapTrap " << this->_name << " takes " << amount;
+		std::cout << this->_name << " takes " << amount;
 		std::cout << " points of damage!" << std::endl;
 	}
 
 	void ClapTrap::beRepaired(unsigned int amount)
 	{
-		std::cout << "ClapTrap " << this->_name << " be repaired for ";
+		std::cout << this->_name << " be repaired for ";
 		std::cout << amount << " points!" << std::endl;
 	}
 

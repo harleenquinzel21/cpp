@@ -1,9 +1,9 @@
-NAME		= ScavTrap
+NAME		= FragTrap
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -MMD -std=c++98
-SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJS		= $(SRCS:.cpp=.o)
-HEADER		=  ClapTrap.hpp ScavTrap.hpp
+HEADER		=  ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 VIOLET		= \033[1;35m
 %.o:		%.cpp
 			$(CC) $(FLAGS) -c $< -o $(<:.cpp=.o)

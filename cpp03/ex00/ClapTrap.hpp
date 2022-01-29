@@ -32,5 +32,6 @@ public:
 	unsigned int const &getAttackDemage(void) const;
 	void setAttackDemage(unsigned int const &amount);
 };
+	std::ostream &operator<<(std::ostream &ostream, const ClapTrap &instance);
 
 #endif

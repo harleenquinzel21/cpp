@@ -1,11 +1,11 @@
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap *a = new ClapTrap("a");
-	ClapTrap b("b");
-	ClapTrap c;
+	FragTrap *a = new FragTrap("a");
+	FragTrap b("b");
+	FragTrap c;
 
 	c = b;
 	a->attack("bbb");
@@ -18,8 +18,8 @@ int	main(void)
 	std::cout << "Name: " << c.getName() << std::endl;
 	std::cout << "Hit Points: " << c.getHitPoints() << std::endl;
 	std::cout << "Energy: " << c.getEnergy() << std::endl;
-	std::cout << "Attack Demage: " << c.getAttackDemage() << std::endl;
-
+	c.attack("a");
+	c.highFivesGuys();
 	std::cout << *a << std::endl << b << std::endl;
 
 	delete a;
