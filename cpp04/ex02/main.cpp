@@ -55,5 +55,8 @@ int main()
 	std::cout << "Dog2's ";
 	dog_2.printIdeas();
 
+	// std::cout << std::endl;
+	// Animal *animal = new Animal();
+	// delete animal;
 }
 

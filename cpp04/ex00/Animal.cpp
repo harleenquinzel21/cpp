@@ -34,13 +34,15 @@ Animal	&Animal::operator=(Animal const &rhs)
 
 std::string Animal::getType(void)const
 {
-	return (this->type);
+	if (this->type.size() > 0)
+		return (this->type);
+	else
+		return ("Object of class Animal, no type");
 }
-
 
 void Animal::makeSound(void)const
 {
-	std::cout << "Who am I? dog or cat?" << std::endl;
+	std::cout << "\x1b[4;32mWho am I? dog or cat?\x1b[0m" << std::endl;
 	return ;
 }
 

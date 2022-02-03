@@ -6,14 +6,14 @@
 
 class Cat : public Animal
 {
-public:
-	Cat(void);
-	Cat(Cat const &instance);
-	~Cat(void);
+	public:
+		Cat(void);
+		Cat(Cat const &instance);
+		~Cat(void);
 
-	Cat	&operator=(Cat const &rhs);
+		Cat	&operator=(Cat const &rhs);
 
-	virtual void makeSound(void)const;
+		virtual void makeSound(void)const;
 };
 
 #endif

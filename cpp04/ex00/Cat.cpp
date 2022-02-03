@@ -27,6 +27,6 @@ Cat	&Cat::operator=(Cat const &rhs)
 
 void Cat::makeSound(void)const
 {
-	std::cout << "MEEEOW!" << std::endl;
+	std::cout << "\x1b[4;32mMEOW!\x1b[0m" << std::endl;
 	return ;
 }

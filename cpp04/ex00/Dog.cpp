@@ -7,7 +7,7 @@ Dog::Dog(void) : Animal("Dog")
 	return ;
 }
 
-Dog::Dog(Dog const& instance) : Animal(instance)
+Dog::Dog(Dog const &instance) : Animal(instance)
 {
 	std::cout << "Dog created by copy constructor" << std::endl;
 	return ;
@@ -27,6 +27,6 @@ Dog	&Dog::operator=(Dog const &rhs)
 
 void Dog::makeSound(void)const
 {
-	std::cout << "BOW-WOW!" << std::endl;
+	std::cout << "\x1b[4;32mWOOF!\x1b[0m" << std::endl;
 	return ;
 }

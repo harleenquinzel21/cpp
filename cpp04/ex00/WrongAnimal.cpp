@@ -40,7 +40,7 @@ std::string WrongAnimal::getType(void)const
 
 void WrongAnimal::makeSound(void)const
 {
-	std::cout << "Who am I? dog or cat?" << std::endl;
+	std::cout << "\x1b[4;32mWho am I? dog or cat?\x1b[0m" << std::endl;
 	return ;
 }
 

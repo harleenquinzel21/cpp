@@ -16,15 +16,17 @@ int main(void)
 	const WrongAnimal* wcat = new WrongCat();
 	std::cout << std::endl;
 
-	std::cout << j->getType() << ":" << std::endl;
+	std::cout << j->getType() << " : ";
 	j->makeSound();
-	std::cout << i->getType() << ":" << std::endl;
+	std::cout << i->getType() << " : ";
 	i->makeSound(); //will output the cat sound!
+	std::cout << meta->getType() << ":" << std::endl;
 	meta->makeSound();
 	std::cout << std::endl;
 
 	std::cout << wcat->getType() << ":" << std::endl;
-	wcat->makeSound(); //will output the cat sound!
+	wcat->makeSound(); //will output the wrong cat sound!
+	std::cout << meta->getType() << ":" << std::endl;
 	wanimal->makeSound();
 
 	std::cout << std::endl;
