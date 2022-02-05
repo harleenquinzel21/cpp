@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
+// #include "Form.hpp"
 
 Bureaucrat::Bureaucrat(){}
 
@@ -16,14 +17,14 @@ Bureaucrat::Bureaucrat(std::string const &_name, int rank) : name(_name)
 	return ;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &instance) : name(instance.getName())
+Bureaucrat::Bureaucrat(Bureaucrat const &initstate) : name(initstate.getName())
 {
-	if (instance.getGrade() < 1)
+	if (initstate.getGrade() < 1)
 		throw GradeTooHighException();
-	else if (instance.getGrade() > 150)
+	else if (initstate.getGrade() > 150)
 		throw GradeTooLowException();
 	else
-		grade = instance.getGrade();
+		grade = initstate.getGrade();
 	return ;
 }
 
@@ -62,6 +63,22 @@ void Bureaucrat::decGrade(void)
 	return ;
 }
 
+// void Bureaucrat::signForm(Form &form) const
+// {
+// 	if (this->getGrade() > form.getRGradeSign())
+// 	{
+// 		std::cout << "Bureaucrat " << this->name;
+// 		std::cout << " couldn’t sign form " << form.getName();
+// 		std::cout << " because his grade is too low." << std::endl;
+// 	}
+// 	else
+// 	{
+// 		std::cout << "Bureaucrat " << this->name;
+// 		std::cout << " signed form " << form.getName() << std::endl;
+// 	}
+// }
+
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high!");
@@ -72,9 +89,9 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return ("Grade is too low!");
 }
 
-std::ostream&operator<<(std::ostream &ostream, Bureaucrat const &instance)
+std::ostream&operator<<(std::ostream &ostream, Bureaucrat const &initstate)
 {
-	ostream << instance.getName() << " bureaucrat grade: " << instance.getGrade() << std::endl;
+	ostream << initstate.getName() << " bureaucrat grade: " << initstate.getGrade() << std::endl;
 	return (ostream);
 }
 
