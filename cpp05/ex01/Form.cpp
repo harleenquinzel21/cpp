@@ -11,7 +11,7 @@ Form::Form(std::string const &_name, int const _rGradeSign, int const _rGradeExe
 		throw Form::GradeTooLowException();
 	return ;
 }
-	
+
 Form::Form(Form const &instance) : name(instance.getName()), rGradeSign(instance.getRGradeSign()), rGradeExe(instance.rGradeExe)
 {
 	*this = instance;
@@ -32,22 +32,26 @@ bool Form::getState() const {return this->isSigned;}
 
 void Form::beSigned(Bureaucrat &bureaucrat)
 {
+
 	if (bureaucrat.getGrade() > this->getRGradeSign())
+	{
+		bureaucrat.signForm(*this);
 		throw Form::GradeTooLowException();
-	else 
+	}
+	else
 		this->isSigned = true;
-	// bureaucrat.signForm(*this);
+	bureaucrat.signForm(*this);
 	return ;
 }
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("Form grade is too high!");
+	return ("\033[1;36mException: \033[0;37mForm grade is too high!");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("Form grade is too low!");
+	return ("\033[1;36mException: \033[0;37mForm grade is too low!");
 }
 
 std::ostream&operator<<(std::ostream &ostream, Form const &instance)

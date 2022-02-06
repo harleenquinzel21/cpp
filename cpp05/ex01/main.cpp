@@ -4,14 +4,51 @@
 
 int		main(void)
 {
-	Bureaucrat *bob = new Bureaucrat("bob", 3);
-	Bureaucrat *jim = new Bureaucrat("jim", 149);
+	Bureaucrat *bob = new Bureaucrat("Bob", 3);
+	Bureaucrat *jim = new Bureaucrat("Jim", 149);
 	Form *B = new Form("28B", 70, 70);
-	
+
 	std::cout << *bob << *jim << std::endl;
 	std::cout << *B << std::endl;
 
-	std::cout << "\033[1;36m~~~~~~SIGNED TESTS~~~~~\033[0;37m" << std::endl;
+	std::cout << "\033[1;36m~INVALID GRADE CONSTRUCTOR TEST~\033[0;37m\n" << std::endl;
+	try
+	{
+		Bureaucrat mike("Mike", 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+
+	try
+	{
+		Bureaucrat mike("Mike", 200);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+
+	try
+	{
+		Form C("28C", 0, 151);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n";
+	}
+
+	try
+	{
+		Form C("28C", 151, 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << "\n\n";
+	}
+
+	std::cout << "\033[1;36m~~~~~~~~~SIGNED TESTS~~~~~~~~~~~\033[0;37m\n" << std::endl;
 
 	try
 	{
@@ -32,8 +69,6 @@ int		main(void)
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << *B << std::endl;
-
-
 
 	delete jim;
 	delete bob;
